@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malzeme Hesaplama Sistemi</title>
+    <!-- Ana stil dosyası önce yüklenmeli -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Modül stil dosyaları ana stilden sonra yüklenmeli -->
+    <link rel="stylesheet" href="styles/tabs.css">
+    <link rel="stylesheet" href="styles/columns.css">
+    <link rel="stylesheet" href="styles/filters.css">
+    <link rel="stylesheet" href="styles/dragdrop.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sekme Çubuğu -->
+        <div class="tab-bar">
+            <div class="tabs-container">
+                <div class="tabs-list" id="tabsList">
+                </div>
+                <div class="tab-actions">
+                    <button id="addTabBtn" class="btn-add-tab" title="Yeni Sekme">
+                        <span>+</span>
+                    </button>
+                    <button id="languageBtn" class="btn-language" title="Dil Seçimi">
+                        <span>🌐</span>
+                    </button>
+                    <button id="columnManagerBtn" class="btn-column-manager" title="Sütun Yöneticisi">
+                        <span>📊</span>
+                    </button>
+                    <button id="filterManagerBtn" class="btn-filter-manager" title="Gelişmiş Filtre">
+                        <span>🔍</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sekme İçerikleri -->
+        <div class="tab-content-container" id="tabContentContainer">
+            <!-- Ana Sekme İçeriği -->
+            <div class="tab-pane active" id="tab-main">
+                <!-- Üst Panel - İki Satırlı Düzenleme -->
+                <div class="top-panel">
+                    <div class="project-section">
+                        <div class="project-title">
+                            <h3 data-translate="project.info">📋 Proje Bilgileri</h3>
+                        </div>
+                        <div class="project-form-container">
+                            <!-- Üst Satır -->
+                            <div class="project-row">
+                                <div class="form-group-compact">
+                                    <label for="projeAdi" data-translate="project.name">Proje Adı</label>
+                                    <input type="text" id="projeAdi" placeholder="Proje adını girin" data-translate-title="project.name">
+                                </div>
+                                <div class="form-group-compact">
+                                    <label for="siparisNo" data-translate="project.order.no">Sipariş No</label>
+                                    <input type="text" id="siparisNo" placeholder="Sipariş numarası" data-translate-title="project.order.no">
+                                </div>
+                                <div class="form-group-compact">
+                                    <label for="revizyonNo" data-translate="project.revision.no">Revizyon No</label>
+                                    <input type="text" id="revizyonNo" placeholder="Revizyon numarası" data-translate-title="project.revision.no">
+                                </div>
+                            </div>
+                            <!-- Alt Satır -->
+                            <div class="project-row">
+                                <div class="form-group-compact">
+                                    <label for="resimAciklamasi" data-translate="project.drawing.description">Resim Açıklaması</label>
+                                    <input type="text" id="resimAciklamasi" placeholder="Resim açıklaması" data-translate-title="project.drawing.description">
+                                </div>
+                                <div class="form-group-compact">
+                                    <label for="resimNo" data-translate="project.drawing.no">Resim No</label>
+                                    <input type="text" id="resimNo" placeholder="Resim numarası" data-translate-title="project.drawing.no">
+                                </div>
+                                <div class="form-group-compact">
+                                    <label for="hazirlayan" data-translate="project.prepared.by">Hazırlayan</label>
+                                    <input type="text" id="hazirlayan" placeholder="Hazırlayan kişi" data-translate-title="project.prepared.by">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sağ Taraf - Özet ve Butonlar -->
+                    <div class="panel-right-section">
+                        <!-- Özet Raporu -->
+                        <div class="summary-panel-compact">
+                            <div class="summary-header-compact" data-translate="summary.title">📊 Özet Raporu</div>
+                            <div class="summary-content">
+                                <div class="summary-item">
+                                    <span class="summary-label" data-translate="summary.total.parts">Toplam Parça:</span>
+                                    <span class="summary-value" id="toplamParca">0</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label" data-translate="summary.total.weight">Toplam Ağırlık:</span>
+                                    <span class="summary-value" id="genelToplamAgirlik">0.00 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Excel İşlemleri -->
+                        <div class="excel-actions-container">
+                            <div class="excel-buttons-row">
+                                <button id="btnExcelKaydet" class="btn-excel-action" data-translate="button.save.excel">
+                                    💾 Excel Kaydet
+                                </button>
+                                <button id="btnExcelAc" class="btn-excel-action" data-translate="button.open.excel">
+                                    📁 Excel Aç
+                                </button>
+                            </div>
+                            <button id="btnTabloTemizle" class="btn-table-clear-action" onclick="MaterialCalculator.tabloyuTemizle()" data-translate="button.clear.table">
+                                🗑️ Tabloyu Temizle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ana İçerik Alanı -->
+                <div class="main-content">
+                    <!-- Sol Panel - Malzeme Bilgileri -->
+                    <div class="left-panel">
+                        <div class="panel-header">
+                            <h2 data-translate="material.info">⚙️ Malzeme Bilgileri</h2>
+                        </div>
+                        
+                        <div class="material-info-card">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="malzemeTuru">
+                                        <span class="label-icon">📐</span> <span data-translate="material.type">Malzeme Türü</span>
+                                    </label>
+                                    <select id="malzemeTuru" onchange="MaterialCalculator.malzemeTuruDegisti()">
+                                        <option value="">Seçiniz...</option>
+                                        <option value="sac" data-translate="material.type.sheet">Sac</option>
+                                        <option value="lama" data-translate="material.type.bar">Lama</option>
+                                        <option value="boru" data-translate="material.type.pipe">Boru</option>
+                                        <option value="kosebent" data-translate="material.type.angle">L Köşebent</option>
+                                        <option value="npu" data-translate="material.type.npu">NPU Profil</option>
+                                        <option value="npi" data-translate="material.type.npi">NPI Profil</option>
+                                        <option value="heb" data-translate="material.type.heb">HEB Profil</option>
+                                        <option value="hea" data-translate="material.type.hea">HEA Profil</option>
+                                        <option value="ipe" data-translate="material.type.ipe">IPE Profil</option>
+                                        <option value="kutu" data-translate="material.type.box">Kutu Profil</option>
+                                        <option value="flans" data-translate="material.type.std.flange">Standart Flanş</option>
+                                        <option value="ozelFlans" data-translate="material.type.custom.flange">Özel Flanş</option>
+                                        <option value="mil" data-translate="material.type.rod">Mil</option>
+                                        <option value="izgara" data-translate="material.type.grate">Izgara Elemanları</option>
+                                        <option value="ozelMalzeme" data-translate="material.type.custom">Özel Malzeme</option>
+                                        <option value="dirsek" data-translate="material.type.elbow">Dirsek (EN 10253-1)</option>
+                                        <option value="eklenenMalzeme">-- Eklenen Malzeme --</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="malzemeCinsi">
+                                        <span class="label-icon">🔬</span> <span data-translate="material.grade">Malzeme Cinsi</span>
+                                    </label>
+                                    <select id="malzemeCinsi">
+                                        <option value="S235JR">S235JR</option>
+                                        <option value="S275JR">S275JR</option>
+                                        <option value="P235GH">P235GH</option>
+                                        <option value="P265GH">P265GH</option>
+                                        <option value="P295GH">P295GH</option>
+                                        <option value="P355GH">P355GH</option>
+                                        <option value="P355NH">P355NH</option>
+                                        <option value="1.4301">1.4301 (304)</option>
+                                        <option value="1.4401">1.4401 (316)</option>
+                                        <option value="1.4404">1.4404 (316L)</option>
+                                        <option value="1.4845">1.4845 (310)</option>
+                                        <option value="16Mo3">16Mo3</option>
+                                        <option value="Aluminyum">Aluminyum</option>
+                                        <option value="Bakır">Bakır</option>
+                                        <option value="Bronz">Bronz</option>
+                                        <option value="Pirinç">Pirinç</option>
+                                        <option value="Delrin">Delrin</option>
+                                        <option value="Hardox">Hardox</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adet">
+                                        <span class="label-icon">🔢</span> <span data-translate="material.quantity">Adet</span>
+                                    </label>
+                                    <input type="number" id="adet" value="1" min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="heatNo">
+                                        <span class="label-icon">🔥</span> <span data-translate="material.heat.no">Açıklama / Heat No</span>
+                                    </label>
+                                    <input type="text" id="heatNo" placeholder="Açıklama veya Heat numarası">
+                                </div>
+                            </div>
+                            
+                            <!-- Dinamik ölçü alanları -->
+                            <div id="olcuAlanlari" class="dimension-fields"></div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="btnHesapla" class="btn btn-calculate" onclick="MaterialCalculator.hesapla()" data-translate="button.calculate">
+                                <span class="btn-icon">🧮</span> Hesapla
+                            </button>
+                            <button id="btnEkle" class="btn btn-add" onclick="MaterialCalculator.tabloyaEkle()" data-translate="button.add.to.table">
+                                <span class="btn-icon">➕</span> Tabloya Ekle
+                            </button>
+                            <button id="btnTemizle" class="btn btn-clear" onclick="MaterialCalculator.temizle()" data-translate="button.clear">
+                                <span class="btn-icon">🗑️</span> Temizle
+                            </button>
+                        </div>
+
+                        <!-- Hesaplama Sonuçları -->
+                        <div class="result-cards">
+                            <div class="result-card">
+                                <div class="result-icon">⚖️</div>
+                                <div class="result-info">
+                                    <h3 data-translate="result.unit.weight">Birim Ağırlık</h3>
+                                    <div class="result-value">
+                                        <span id="birimAgirlik">0.00</span>
+                                        <span class="unit" data-translate="dimension.kg">kg</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-icon">📊</div>
+                                <div class="result-info">
+                                    <h3 data-translate="result.total.weight">Toplam Ağırlık</h3>
+                                    <div class="result-value">
+                                        <span id="toplamAgirlik">0.00</span>
+                                        <span class="unit" data-translate="dimension.kg">kg</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-card" id="suHacmiCard" style="display:none;">
+                                <div class="result-icon">💧</div>
+                                <div class="result-info">
+                                    <h3 data-translate="result.water.volume">Su Hacmi</h3>
+                                    <div class="result-value">
+                                        <span id="suHacmi">0.00</span>
+                                        <span class="unit" data-translate="dimension.liter">litre</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Panel - Tablo -->
+                    <div class="right-panel">
+                        <div class="panel-header">
+                            <h2>📋 <span data-translate="table.material.list">Malzeme Listesi</span></h2>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="malzemeTablosu">
+                                <thead>
+                                    <tr>
+                                        <th data-translate="table.item.no">P.No</th>
+                                        <th data-translate="table.quantity">Adet</th>
+                                        <th data-translate="table.material.type">Malzeme Türü</th>
+                                        <th data-translate="table.material.grade">Malzeme Cinsi</th>
+                                        <th data-translate="table.dimensions">Ölçüler</th>
+                                        <th data-translate="table.standard">Standart</th>
+                                        <th data-translate="table.water.volume">Su Hacmi (L)</th>
+                                        <th data-translate="table.unit.weight">Birim Ağırlık (kg)</th>
+                                        <th data-translate="table.total.weight">Toplam Ağırlık (kg)</th>
+                                        <th data-translate="table.heat.no">Açıklama / Heat No</th>
+                                        <th data-translate="table.actions">İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabloGovdesi"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ve Scripts -->
+    <div id="settingsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ayarlar</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="settingsBody"></div>
+        </div>
+    </div>
+
+    <!-- Ekleme göstergesi (drag-drop için) -->
+    <div id="insertion-indicator" class="insertion-indicator" style="display: none;"></div>
+
+    <!-- Scripts -->
+    <script src="js/modules/materialData.js"></script>
+    <script src="js/modules/calculator.js"></script>
+    <script src="js/modules/tableManager.js"></script>
+    <script src="js/modules/tabManager.js"></script>
+    <script src="js/modules/columnManager.js"></script>
+    <script src="js/modules/filterManager.js"></script>
+    <script src="js/modules/languageManager.js"></script>
+    <script src="js/modules/dragDropManager.js"></script>
+    <script src="js/modules/materialLibrary.js"></script>
+    <script src="js/modules/excelManager.js"></script>
+    <script src="js/modules/uiManager.js"></script>
+    <script src="js/renderer.js"></script>
+</body>
+</html>

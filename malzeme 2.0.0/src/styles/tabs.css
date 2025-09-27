@@ -1,0 +1,437 @@
+/* Sekmeli Yapı Stilleri */
+.tab-bar {
+    background: var(--gray-100);
+    border-bottom: 2px solid var(--gray-300);
+    padding: 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.tabs-list {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tabs-list::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-300);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: var(--transition);
+    position: relative;
+    min-width: 120px;
+    max-width: 200px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.tab-button:hover {
+    background: var(--gray-300);
+    color: var(--gray-700);
+}
+
+.tab-button.active {
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 -2px 4px rgba(102, 126, 234, 0.1);
+    z-index: 1;
+}
+
+.tab-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab-modified {
+    color: var(--warning-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.tab-close {
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 2px;
+    border-radius: 2px;
+    transition: var(--transition);
+    line-height: 1;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-close:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+.tab-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.btn-add-tab,
+.btn-language,
+.btn-column-manager,
+.btn-filter-manager,
+.btn-material-library {
+    width: 32px;
+    height: 32px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.btn-add-tab:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.btn-language {
+    background: var(--info-color);
+}
+
+.btn-language:hover {
+    background: #3182ce;
+}
+
+.btn-column-manager {
+    background: var(--success-color);
+}
+
+.btn-column-manager:hover {
+    background: #38a169;
+}
+
+.btn-filter-manager {
+    background: var(--warning-color);
+}
+
+.btn-filter-manager:hover {
+    background: #dd6b20;
+}
+
+.btn-material-library {
+    background: var(--secondary-color);
+}
+
+.btn-material-library:hover {
+    background: #6b46c1;
+}
+
+/* Tab İçerik Konteynırı */
+.tab-content-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tab-pane.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 1;
+}
+
+/* Filtrelenmiş Sekme Stilleri */
+.filtered-tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px;
+    background: var(--gray-50);
+}
+
+.filtered-tab-header {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-info h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.filter-summary {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.filter-count,
+.result-count {
+    background: var(--gray-100);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.filtered-tab-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-excel-export,
+.btn-print,
+.btn-refresh-filter {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+    color: white;
+}
+
+.btn-excel-export {
+    background: #107c41;
+}
+
+.btn-excel-export:hover {
+    background: #0e6433;
+}
+
+.btn-print {
+    background: var(--gray-600);
+}
+
+.btn-print:hover {
+    background: var(--gray-700);
+}
+
+.btn-refresh-filter {
+    background: var(--info-color);
+}
+
+.btn-refresh-filter:hover {
+    background: #3182ce;
+}
+
+.filtered-table-wrapper {
+    flex: 1;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: auto;
+    padding: 15px;
+}
+
+.filtered-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.filtered-table thead {
+    background: var(--gray-100);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.filtered-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--gray-300);
+    white-space: nowrap;
+}
+
+.filtered-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.filtered-table tbody tr {
+    transition: var(--transition);
+}
+
+.filtered-table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+/* Karşılaştırma Sekmesi */
+.comparison-tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px;
+    background: var(--gray-50);
+}
+
+.comparison-header {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comparison-header h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.comparison-actions button {
+    background: var(--success-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.comparison-actions button:hover {
+    background: #38a169;
+}
+
+.comparison-content {
+    flex: 1;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Genel Sekme */
+.generic-tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    background: var(--gray-50);
+}
+
+.generic-tab-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.tab-content-area {
+    flex: 1;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .tab-button {
+        min-width: 100px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .tab-actions {
+        margin-left: 10px;
+        gap: 3px;
+    }
+    
+    .btn-add-tab,
+    .btn-language,
+    .btn-column-manager,
+    .btn-filter-manager,
+    .btn-material-library {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .filtered-tab-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .filter-summary {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .filtered-tab-actions {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
