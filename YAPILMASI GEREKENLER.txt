@@ -1,0 +1,56 @@
+herzaman türkçe yanıt ver.
+
+
+sana malzeme hesaplama programı kodlarını veriyorum. tüm kodları ve kod yapısını incele. 
+
+çalışma mantığını hiç bozmadan yeni eklemeler ve düzenlemeler yapılacak
+
+uygulamanın en üstünde bulunan proje bilgileri bölümüne "Kontrol" eklenecek. "Hazırlayan" bölümünün yanında olacak
+excel de özet raporu bölümünde "rapor tarihi" ve "hazırlayan" satırları bir üste taşınacak. altındaki yere "KONTROL" eklenecek. proje bilgileri bölümünde kontrol kısmına yazılan yazı buraya gelecek
+
+programda malzeme listesi tablosunun alt tarafına yeni bir bölüm eklenecek. bu bölümde ikiye ayrılacak "Notlar:" ve "Revizyonlar:" şeklinde. buraya yazılanlar excele kaydettiğimizde listenin en altına eklenen bölümde yazılacak. excel aç dediğimizde yazılı olanlar programda görünecek. 
+
+excelde listenin en altına eklenen bölümde düzenlemeler yaptım. bu düzenlemelerin olduğu dosyayı da veriyorum. yazı karakterleri, kalınlıkları, büyüklükleri, hücre birleştirmeleri ve kutu kenarlıklarını verdiğim şekilde kullan.
+
+verdiğim tüm kodları incele, çalışma mantığını incele. eklenmesi ve düzeltilmesi gereken kod bloklarını tam ve doğru olarak paylaş. hangi dosyada nereyi değiştirmem gerektiğini, nereye ekleme yapmam gerektiğini detaylı anlat
+
+uygulamadaki "proje bilgileri" bölümü düzenlemeleri;
+dil seçimi bölümü "tabloyu temizle" butonunun altında olmalı
+"Kontrol" yazması gereken yerde "conrolled_by" yazıyor düzeltilmeli
+"Kontrol eden kişi" yazması gereken yerde "controlled_by_placeholder" yazıyor düzeltilmeli
+
+uygulamadaki "Notlar" ve "Revizyonlar" bölümleri düzenlemeleri;
+bu bölümler üst üste çok yer kaplıyor. bu bölümler en altta yanyana konumlandırılmalı.
+"Notlar:" yazması gereken yerde "notes" yazıyor düzeltilmeli
+"Revizyonlar" yazması gereken yerde "revisions" yazıyor düzeltilmeli
+
+excelde listenin en altına eklenen bölümde düzenlemeler;
+"Notlar:" ve "Revizyonlar" bölümleri yanyana olmalı, buna göre hücreler birleştirilmeli.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
