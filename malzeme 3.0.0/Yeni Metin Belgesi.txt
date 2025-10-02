@@ -1,0 +1,50 @@
+yeni sisteme göre oluşturulması gereken dosya listesini çıkar. daha önceki excelManager dosyasını de paylaşıyorum. oluşturulacak excel dosyası bu dosyanın oluşturduğu şekilde olmalı
+eski referansları sil  ve tüm dosyaları yeniden, yeni sisteme göre oluştur
+
+
+benim istediğim modüler sistem özellikleri;
+
+malzeme türlerinin kendi dosyaları olacak. bu dosya içerisinde malzemenin türü, ağırlığı, kendi ağırlık hesaplama formülü, kendi standart türü, kendi malzeme cinsi, kendi türkçe-ingilizce çevirisi gibi tüm bilgileri içerecek.
+
+böylece calculator.js languageManager.js dosyalarına gerek olmayacak. çok büyük bir materialData.js dosyasına ihtiyaç olmayacak.  her yeni malzeme türü modülü eklendiğinde bu bilgilerle beraber eklenmiş olacak.
+
+dil seçimi değiştirildiğinde programın ve excel çıktısının dili için nasıl yol izlemen gerektiğini sen bul
+
+"tüm dosyalar IIFE pattern kullanmalı" dedin. en doğru yaklaşım bu ise bunu yap
+
+bu isteklere göre dosya düzenini oluştur. malzeme türü kod dosyalarını en son paylaşacaksın
+öncelikle ana program dosyalarını eski sistemden arındırılmış, doğru referanslarla yeniden oluştur.
+
+
+Oluşturulmuş Dosyalar (✅) ve Bekleyenler (⏳):
+✅ Tamamlanan Dosyalar:
+
+main.js - Electron main process
+index.html - Ana HTML
+package.json - Proje yapılandırması
+styles/main.css - Stil dosyası
+js/renderer.js - Ana renderer
+js/modules/core/tableManager.js - Tablo yönetimi
+js/modules/core/excelManager.js - Excel işlemleri
+js/modules/core/uiManager.js - UI yönetimi
+js/modules/materialRegistry.js - Malzeme kayıt sistemi
+js/modules/materials/base/baseMaterial.js - Temel sınıf
+js/modules/materials/sac.js - Örnek malzeme
+
+⏳ Oluşturulması Gereken Malzeme Dosyaları:
+
+js/modules/materials/sac.js++++++++
+js/modules/materials/lama.js+++++++
+js/modules/materials/boru.js+++++++
+js/modules/materials/kosebent.js+++
+js/modules/materials/profil.js+++++
+js/modules/materials/kutu.js+++++++
+js/modules/materials/mil.js++++++++
+js/modules/materials/flans.js++++++
+js/modules/materials/flansAsme.js----------
+js/modules/materials/ozelFlans.js++
+js/modules/materials/dirsek.js
+js/modules/materials/izgara.js+++++
+js/modules/materials/ozelMalzeme.js++
+
+
