@@ -1,0 +1,8 @@
+herzaman türkçe yanıt ver
+
+tablodan bir satır sildiğimde yada yeni sayfa açtığımda, malzeme bilgileri bölümündeki bilgileri girdiğim hücrelere klavye ile müdahale edemiyorum. 
+mause ile başka bir ekrana tıklayıp tekrar uygulamadaki hücrelerden birine tıkladığımda klavye aktif oluyor.
+
+
+tabloya eklenen malzemeyi düzenle diyorum, malzeme bilgilerini değiştirip güncelle dediğimde, tabloya yeni malzeme olarak ekliyor. Malzeme bilgileri bölümü güncelleme modundan çıkmıyor.
+
