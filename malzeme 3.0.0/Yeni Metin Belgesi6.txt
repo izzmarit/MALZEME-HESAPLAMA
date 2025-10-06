@@ -1,0 +1,15 @@
+herzaman türkçe yanıt ver
+
+gözden kaçırdığın birşeyler var.  sana sorunun ne olduğunu açıkça söyledim. yine yazıyorum;
+"tablodan bir satır sildiğimde, bir hata mesajı aldığımda, yeni sayfa açtığımda, özel malzeme kaydedip tabloya eklediğimde, yada tabloyu temizle dediğimde, malzeme bilgileri bölümündeki bilgileri girdiğim hücrelere klavye ile müdahale edemiyorum. şu şekilde oluyor; tabloya malzeme ekliyorum, daha sonra eklediğim satırı siliyorum. yeniden malzeme eklemek istediğimde ölçü ve değer girdiğim input hücrelerinde klavye ile yazamıyorum. farklı bir uygulama penceresinde biryere tıklayıp tekrar uygulamaya dönüp input hücresine tıklıyorum ve klavye ile aktif yazabiliyorum. bu çok önemli bir sorun, kullanıcı için zorluk oluşturuyor."
+
+bunun için yaptığın düzenlemeler hiçbir işe yaramıyor. yanlış yerlere odaklanıyorsun yada bilerek bulmuyorsun. böyle bir sorunun oluşması için neyin hatalı olduğunu bulman gerekiyor. 
+tüm kod yapısını analiz et ve bu sorunun kesin çözümünü bul.
+
+
+""custom modal""
+aynı sorun "özel flanş" ta şablon olarak kaydet dediğimde ve "özel malzeme" de malzemeyi kaydet dediğimde de oluyor
+
+ızgara modülünden bir parçayı tabloya eklediğimde kendi adı çıkıyor. İngilizceye çevirdiğimde "grating element" yazıyor. tekrar Türkçeye çevirdiğimde "ızgara elemanı" yazıyor. burada herzaman kendi adı yazmalı.
+
+excel den okumada eksik
