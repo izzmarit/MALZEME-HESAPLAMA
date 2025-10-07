@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .splash-container {
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        .logo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+        .app-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .app-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .loading-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        .loading-progress {
+            height: 100%;
+            background: white;
+            animation: loading 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes loading {
+            0% { width: 0; }
+            90% { width: 95%; }  /* 3 saniyenin %90'ında %95'e ulaş */
+            100% { width: 100%; } /* Son %10'luk sürede tamamla */
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <div class="logo-container">
+            <img src="assets/icon.png" alt="Logo">
+        </div>
+        <h1 class="app-title">Malzeme Hesaplama Sistemi</h1>
+        <p class="app-subtitle">TETA Kazan</p>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+</body>
+</html>
