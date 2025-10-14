@@ -1,0 +1,60 @@
+{
+  "name": "teta-material-calculator",
+  "version": "4.0.0",
+  "description": "TETA Malzeme Hesaplama Sistemi - Tam Modüler Yapı",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": ["material", "calculator", "modular", "excel"],
+  "author": "TETA Kazan",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "build": {
+    "appId": "com.tetakazan.materialcalculator",
+    "productName": "TETA Malzeme Hesaplama",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
