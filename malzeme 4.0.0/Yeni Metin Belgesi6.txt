@@ -1,0 +1,33 @@
+
+
+
+herzaman türkçe yanıt ver
+kod yapısının tamamını incele, kodların tamamını hiçbir satırı atlamadan incele, DERİN ANALİZ yaparak dosyaları karşılıklı olarak incele
+
+örnek modül dosyasını baz alarak yeni modüller oluşturacaksın "Kompansatörler" "Filtreler süzgeçler" "ölçüm cihazları" "contalar"
+
+Filtreler süzgeçler modülünde
+ASME B16.34 ve DIN 3202 standartlarını araştır ve analiz et
+tüm Filtre ve süzgeç tipleri, bağlantı şekilleri, kalınlıkları, basınç sınıfları, her standartın kendi malzeme tipleri vs. tüm özellikleri eklenmeli
+türkçe ingilizce çevirileri doğru yapılmalı. malzeme türü bölümünde herzaman seçilen tür neyse o yazılmalı, genel modül adı değil.
+
+ölçüm cihazları modülünde
+ASME B40.3 ve DIN ve EN standartlarını araştır ve analiz et
+tüm termometre ve manometre tipleri, bağlantı şekilleri, gösterge çapları, daldırma boyları, gövde malzemesi, çalışma aralıkları, dolgu tipi vs. tüm özellikleri eklenmeli
+türkçe ingilizce çevirileri doğru yapılmalı. malzeme türü bölümünde herzaman seçilen tür neyse o yazılmalı, genel modül adı değil.
+
+contalar modülünde
+ASME B16.20 ve EN 1514 standartlarını araştır ve analiz et
+tüm conta tipleri, bağlantı şekilleri, kalınlıkları, basınç sınıfları, her standartın kendi malzeme tipleri vs. tüm özellikleri eklenmeli
+türkçe ingilizce çevirileri doğru yapılmalı. malzeme türü bölümünde herzaman seçilen tür neyse o yazılmalı, genel modül adı değil.
+
+kompansatörler modülünde
+EJMA ve EN 14917 standartlarını araştır ve analiz et
+tüm kompansatör tipleri, bağlantı şekilleri, kalınlıkları, basınç sınıfları, her standartın kendi malzeme tipleri vs. tüm özellikleri eklenmeli
+türkçe ingilizce çevirileri doğru yapılmalı. malzeme türü bölümünde herzaman seçilen tür neyse o yazılmalı, genel modül adı değil.
+
+
+detaylı olarak bu modülleri tam ve eksiksiz olarak oluştur. programa eklediğimde sorunsuz çalışmasını sağla
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
